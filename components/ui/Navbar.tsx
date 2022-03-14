@@ -10,7 +10,7 @@ export const Navbar = () => {
   const darkMode = useDarkMode(true);
 
   useEffect(() => {
-    setTextColor(!!darkMode.value ? 'white' : 'black');
+    setTextColor(darkMode.value ? 'white' : 'black');
   }, [darkMode.value]);
 
   return (
@@ -22,7 +22,7 @@ export const Navbar = () => {
         alignItems: 'center',
         justifyContent: 'start',
         padding: '0x 20px',
-        backgroundColor: !!darkMode.value
+        backgroundColor: darkMode.value
           ? theme?.colors.gray900.value
           : theme?.colors.white.value,
       }}
