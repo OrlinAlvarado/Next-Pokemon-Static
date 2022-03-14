@@ -6,11 +6,11 @@ import { useEffect, useState } from 'react';
 
 export const Navbar = () => {
   const [textColor, setTextColor] = useState('white');
-  const { theme, isDark } = useTheme();
+  const { theme } = useTheme();
   const darkMode = useDarkMode(true);
 
   useEffect(() => {
-    setTextColor(darkMode.value ? 'white' : 'black');
+    setTextColor(!!darkMode.value ? 'white' : 'black');
   }, [darkMode.value]);
 
   return (
@@ -22,7 +22,7 @@ export const Navbar = () => {
         alignItems: 'center',
         justifyContent: 'start',
         padding: '0x 20px',
-        backgroundColor: darkMode.value
+        backgroundColor: !!darkMode.value
           ? theme?.colors.gray900.value
           : theme?.colors.white.value,
       }}
